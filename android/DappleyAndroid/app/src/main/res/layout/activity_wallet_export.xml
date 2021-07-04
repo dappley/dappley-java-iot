@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_bg"
+    android:orientation="vertical"
+    tools:context=".WalletExportActivity">
+
+    <include layout="@layout/toolbar_title_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8"
+        android:background="@color/main_menu_bg"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_15"
+        android:paddingTop="@dimen/margin_15"
+        android:paddingRight="@dimen/margin_15"
+        android:paddingBottom="@dimen/margin_8">
+
+        <TextView
+            android:layout_width="92dip"
+            android:layout_height="wrap_content"
+            android:text="@string/layout_wallet_name"
+            android:textColor="@color/purple_title" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:textColor="@color/purple_txt"
+            android:textIsSelectable="true"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dip"
+        android:background="@color/main_menu_bg"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_15"
+        android:paddingTop="@dimen/margin_8"
+        android:paddingRight="@dimen/margin_15"
+        android:paddingBottom="@dimen/margin_8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/layout_wallet_address"
+                android:textColor="@color/purple_title" />
+
+            <ImageButton
+                android:id="@+id/btn_copy_address"
+                android:layout_width="28dip"
+                android:layout_height="28dip"
+                android:layout_marginLeft="2dip"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dip"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_copy" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:textColor="@color/purple_txt"
+            android:textIsSelectable="true"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_private_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dip"
+        android:background="@color/main_menu_bg"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_15"
+        android:paddingTop="@dimen/margin_8"
+        android:paddingRight="@dimen/margin_15"
+        android:paddingBottom="@dimen/margin_8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/layout_import_private_key"
+                android:textColor="@color/purple_title" />
+
+            <ImageButton
+                android:id="@+id/btn_copy_private_key"
+                android:layout_width="28dip"
+                android:layout_height="28dip"
+                android:layout_marginLeft="2dip"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dip"
+                android:scaleType="centerCrop"
+                android:src="@drawable/btn_copy" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_private_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:textColor="@color/purple_txt"
+            android:textIsSelectable="true"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_mnemonic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dip"
+        android:background="@color/main_menu_bg"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_15"
+        android:paddingTop="@dimen/margin_8"
+        android:paddingRight="@dimen/margin_15"
+        android:paddingBottom="@dimen/margin_8">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/layout_import_mnemonic"
+            android:textColor="@color/purple_title" />
+
+        <TextView
+            android:id="@+id/tv_mnemonic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dip"
+            android:textColor="@color/purple_txt"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dip"
+        android:background="@color/main_menu_bg" />
+</LinearLayout>

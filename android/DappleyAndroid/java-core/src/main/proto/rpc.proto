@@ -1,0 +1,266 @@
+syntax = "proto3";
+package rpcpb;
+import "peer.proto";
+import "block.proto";
+import "transaction.proto";
+import "utxo.proto";
+import "datastore.proto";
+
+option java_package = "com.dappley.java.core.protobuf";
+option java_outer_classname = "RpcProto";
+//option objc_class_prefix = "HLW";
+
+service RpcService {
+    rpc RpcGetVersion (GetVersionRequest) returns (GetVersionResponse) {}
+    rpc RpcGetBalance (GetBalanceRequest) returns (GetBalanceResponse) {}
+    rpc RpcGetBlockchainInfo (GetBlockchainInfoRequest) returns (GetBlockchainInfoResponse) {}
+    rpc RpcGetUTXO(GetUTXORequest) returns (GetUTXOResponse) {}
+    rpc RpcGetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
+    rpc RpcGetBlockByHash(GetBlockByHashRequest) returns (GetBlockByHashResponse) {}
+    rpc RpcGetBlockByHeight(GetBlockByHeightRequest) returns (GetBlockByHeightResponse) {}
+    rpc RpcSendTransaction(SendTransactionRequest) returns (SendTransactionResponse) {}
+    rpc RpcSendBatchTransaction(SendBatchTransactionRequest) returns (SendBatchTransactionResponse) {}
+    rpc RpcGetNewTransaction(GetNewTransactionRequest) returns (stream GetNewTransactionResponse) {}
+    rpc RpcSubscribe(SubscribeRequest) returns (stream SubscribeResponse) {}
+    rpc RpcGetAllTransactionsFromTxPool(GetAllTransactionsRequest) returns (GetAllTransactionsResponse) {}
+    rpc RpcGetLastIrreversibleBlock(GetLastIrreversibleBlockRequest) returns (GetLastIrreversibleBlockResponse) {}
+    rpc RpcEstimateGas(EstimateGasRequest) returns (EstimateGasResponse) {}
+    rpc RpcGasPrice(GasPriceRequest) returns (GasPriceResponse) {}
+    rpc RpcContractQuery(ContractQueryRequest) returns (ContractQueryResponse) {}
+}
+
+service AdminService{
+    rpc RpcAddPeer(AddPeerRequest) returns (AddPeerResponse) {}
+    rpc RpcSend (SendRequest) returns (SendResponse) {}
+    rpc RpcGetPeerInfo (GetPeerInfoRequest) returns (GetPeerInfoResponse) {}
+    rpc RpcSendFromMiner (SendFromMinerRequest) returns (SendFromMinerResponse) {}
+    rpc RpcAddProducer (AddProducerRequest) returns (AddProducerResponse) {}
+    rpc RpcUnlockAccount (UnlockAccountRequest) returns (UnlockAccountResponse) {}
+}
+
+service MetricService {
+    rpc RpcGetStats(MetricsServiceRequest) returns (GetStatsResponse) {}
+    rpc RpcGetNodeConfig(MetricsServiceRequest) returns (GetNodeConfigResponse) {}
+    rpc RpcSetNodeConfig(SetNodeConfigRequest) returns (GetNodeConfigResponse) {}
+}
+
+// Requests
+
+message CreateAccountRequest {
+    string passphrase = 1;
+}
+
+message UnlockAccountRequest {}
+
+message AddProducerRequest {
+    string address = 1;
+}
+
+message GetBalanceRequest {
+    string address = 1;
+}
+
+message SendFromMinerRequest {
+    string to = 1;
+    bytes amount = 2;
+}
+
+message SendRequest {
+    string from = 1;
+    string to = 2;
+    bytes amount = 3;
+    string account_path = 4;
+    bytes tip = 5;
+    string data = 6;
+    bytes gas_limit = 7;
+    bytes gas_price = 8;
+}
+
+message GetPeerInfoRequest {}
+
+message GetBlockchainInfoRequest {}
+
+message AddPeerRequest {
+    string full_address = 1;
+}
+
+message GetVersionRequest {
+    string proto_version = 1;
+}
+
+message GetUTXORequest {
+    string address = 1;  //account address
+}
+
+message GetBlocksRequest {
+    repeated bytes start_block_hashes = 1;  // Query start block hashes, sorted descending by height.
+    int32 max_count = 2;   // Max query block count
+}
+
+message GetBlockByHashRequest {
+    bytes  hash = 1;
+}
+
+message GetBlockByHeightRequest {
+    uint64 height = 1;
+}
+
+message SendTransactionRequest {
+    transactionpb.Transaction transaction = 1;
+}
+
+message SendBatchTransactionRequest {
+    repeated transactionpb.Transaction transactions = 1;
+}
+
+message GetNewTransactionRequest {}
+
+message SubscribeRequest{
+    repeated string topics = 1;
+}
+
+message MetricsServiceRequest {}
+
+message GetLastIrreversibleBlockRequest {}
+
+message EstimateGasRequest {
+    transactionpb.Transaction transaction = 1;
+}
+
+message GasPriceRequest {
+}
+
+message ContractQueryRequest {
+    string contract_addr = 1;
+    string key = 2;
+    string value = 3;
+}
+
+// Responses
+
+message AddProducerResponse {}
+
+message UnlockAccountResponse {}
+
+message GetBalanceResponse {
+    int64 amount = 1;
+}
+
+message SendFromMinerResponse {}
+
+message SendResponse {
+    string contract_address = 1;
+    string txid = 2;
+}
+
+message GetPeerInfoResponse {
+    repeated networkpb.PeerInfo peer_list = 1;
+}
+
+message GetBlockchainInfoResponse {
+    bytes   tail_block_hash = 1;
+    uint64  block_height = 2;
+    repeated string producers = 3; // all producers' addresses
+    int64   timestamp = 4;
+}
+
+message AddPeerResponse {}
+
+message GetVersionResponse {
+    string proto_version = 1;
+    string server_version = 2;
+}
+
+message GetUTXOResponse {
+    repeated utxopb.Utxo utxos = 1;
+    repeated blockpb.BlockHeader block_headers = 2; //The latest block headers
+}
+
+message GetBlocksResponse {
+    repeated blockpb.Block blocks = 1;
+}
+
+message GetBlockByHashResponse {
+    blockpb.Block block = 1;
+}
+
+message GetBlockByHeightResponse {
+    blockpb.Block block = 1;
+}
+
+message SendTransactionResponse {
+    string generated_contract_address = 1;
+}
+
+message SendBatchTransactionResponse {}
+
+message SendTransactionStatus {
+    bytes txid = 1; // Transactions that are sent
+    uint32 code = 2; // grpc status code
+    string message = 3;
+}
+
+message GetNewTransactionResponse {
+    transactionpb.Transaction transaction = 1;
+}
+
+message SubscribeResponse {
+    string data = 1;
+}
+
+message GetAllTransactionsRequest{}
+
+message GetAllTransactionsResponse{
+    repeated transactionpb.Transaction transactions = 1;
+}
+
+message GetLastIrreversibleBlockResponse {
+    blockpb.Block block = 1;
+}
+
+message GetStatsResponse {
+    metricspb.Metrics stats = 1;
+}
+
+message GetNodeConfigResponse {
+    uint32 tx_pool_limit = 1;
+    uint32 blk_size_limit = 2;
+    uint32 max_connection_out = 3;
+    uint32 max_connection_in = 4;
+    string producer_address = 5;
+    repeated string producers = 6;
+    uint32 max_producers = 7;
+    repeated string ipfs_addresses = 9;
+    uint32 rpc_port = 10;
+}
+
+message SetNodeConfigRequest {
+    enum ConfigType {
+        TX_POOL_LIMIT = 0;
+        BLK_SIZE_LIMIT = 1;
+        MAX_CONN_OUT = 2;
+        MAX_CONN_IN = 3;
+        MAX_PRODUCERS = 4;
+        PRODUCERS = 5;
+    }
+    repeated ConfigType updated_configs = 1;
+    uint32 tx_pool_limit = 2;
+    uint32 blk_size_limit = 3;
+    uint32 max_connection_out = 4;
+    uint32 max_connection_in = 5;
+    uint32 max_producers = 6;
+    repeated string producers = 7;
+}
+
+message EstimateGasResponse {
+    bytes gas_count = 1;
+}
+
+message GasPriceResponse {
+    bytes gas_price = 1;
+}
+
+message ContractQueryResponse {
+    string key = 1;
+    string value = 2;
+}

@@ -1,0 +1,102 @@
+plugins {
+	id 'java-library'
+    id 'com.google.protobuf' version '0.8.7'
+}
+
+ext {
+    name = 'java-core'
+    description = ''
+    version='0.0.1-SNAPSHOT'
+    sourceEncoding='UTF-8'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.madgag.spongycastle:core:1.58.0.0'
+    implementation 'com.madgag.spongycastle:bcpkix-jdk15on:1.58.0.0'
+    implementation 'org.projectlombok:lombok:1.18.4'
+    implementation 'com.esotericsoftware.kryo:kryo:2.24.0'
+    implementation 'com.google.protobuf:protobuf-java:3.12.0'
+    implementation 'io.grpc:grpc-stub:1.30.2'
+    implementation 'io.grpc:grpc-protobuf:1.30.2'
+    implementation 'io.grpc:grpc-okhttp:1.30.2'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+sourceSets {
+    main {
+        // proto file destination
+        proto {
+            srcDir 'src/main/proto'
+            include '**/*.proto'
+        }
+        java {
+            srcDirs 'src/main/java', 'src/generated/main/grpc', 'src/generated/main/java'
+            exclude '**/*.proto'
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.6.1'
+    }
+
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.15.1'
+        }
+    }
+
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                grpc {}
+            }
+        }
+    }
+
+    generatedFilesBaseDir = "$projectDir/src/generated"
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+task sourcesJar(type: Jar) {
+    from sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+jar {
+    exclude "**/logback.xml"
+}
+
+javadoc {
+    options {
+        encoding "UTF-8"
+        charSet 'UTF-8'
+        author true
+        version true
+        links "http://docs.oracle.com/javase/8/docs/api"
+    }
+}

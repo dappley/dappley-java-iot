@@ -1,0 +1,171 @@
+<resources>
+    <string name="app_name">钱包SDK</string>
+
+    <string name="menu_wallet">钱包</string>
+    <string name="menu_step">步数</string>
+    <string name="menu_me">我</string>
+
+    <string name="title_transfer">钱包转账</string>
+    <string name="title_add_wallet">添加钱包</string>
+    <string name="title_create_wallet">创建钱包</string>
+    <string name="title_wallet_detail">详情</string>
+    <string name="title_import_wallet">导入钱包</string>
+    <string name="title_export_wallet">导出钱包</string>
+    <string name="title_mnemonic_wallet">保存钱包</string>
+    <string name="title_import_bt_wallet">导入蓝牙钱包</string>
+    <string name="title_receive">收币</string>
+    <string name="title_me">我的</string>
+    <string name="title_select_address">选择钱包地址</string>
+    <string name="title_modify_password">修改钱包密码</string>
+    <string name="title_authority">权限设置</string>
+    <string name="title_receiver_select">选择收币地址</string>
+
+    <string name="layout_receive_address">收币地址</string>
+    <string name="layout_receive_address_tip">请输入收币钱包地址</string>
+    <string name="layout_wallet_password_tip">请输入钱包密码</string>
+    <string name="layout_transfer_amount">转账数量</string>
+    <string name="layout_transfer_amount_tip">请输入转账数量</string>
+    <string name="layout_transfer">转账</string>
+    <string name="layout_receive">收币</string>
+    <string name="layout_balance">余额</string>
+    <string name="layout_scan">扫一扫</string>
+    <string name="layout_copy">复制</string>
+    <string name="layout_delete_wallet">删除</string>
+    <string name="layout_wallet_name">钱包名</string>
+    <string name="layout_wallet_name_tip">请输入钱包名称</string>
+    <string name="layout_create_wallet">创建钱包</string>
+    <string name="layout_balance_records">未花费交易输出</string>
+    <string name="layout_import_mnemonic_privatekey">私钥/助记词</string>
+    <string name="layout_import_mnemonic_privatekey_tip">请输入私钥或助记词</string>
+    <string name="layout_import_mnemonic">助记词</string>
+    <string name="layout_import_private_key">私钥</string>
+    <string name="layout_import_wallet">导入钱包</string>
+    <string name="layout_import_btn">导入</string>
+    <string name="layout_wallet_address">钱包地址</string>
+    <string name="layout_encrypt_and_save">加密存储到本地</string>
+    <string name="layout_cancel">取消</string>
+    <string name="layout_delete">删除</string>
+    <string name="layout_confirm">确定</string>
+    <string name="layout_ok">好的</string>
+    <string name="layout_copy_address">复制钱包地址</string>
+    <string name="layout_step_today">今日累计步数</string>
+    <string name="layout_step_converted">今日已兑换步数</string>
+    <string name="layout_step_rest">可兑换步数</string>
+    <string name="layout_btn_convert">立即兑换</string>
+    <string name="layout_input_wallet_password">请输入钱包密码</string>
+    <string name="layout_menu_wallet_password">修改钱包密码</string>
+    <string name="layout_step_counter">计步方式</string>
+    <string name="layout_version">版本更新</string>
+    <string name="layout_authority">权限设置</string>
+    <string name="layout_wallet_old_password">旧密码</string>
+    <string name="layout_wallet_old_password_tip">请输入钱包旧密码</string>
+    <string name="layout_wallet_new_password">新密码</string>
+    <string name="layout_wallet_new_password_tip">请输入钱包新密码</string>
+    <string name="layout_wallet_confirm_password">确认密码</string>
+    <string name="layout_wallet_confirm_password_tip">请输入确认密码</string>
+    <string name="layout_btn_modify_password">修改</string>
+    <string name="layout_copy_receive_address">复制地址</string>
+    <string name="layout_click_add_wallet">点此处添加钱包</string>
+    <string name="layout_select_step_counter">选择计步方式</string>
+    <string name="layout_yes">是</string>
+    <string name="layout_no">否</string>
+    <string name="layout_downloading">下载中</string>
+    <string name="layout_version_checking">检测中，请稍后...</string>
+    <string name="layout_version_new">检测到新版本，是否立即更新？</string>
+    <string name="layout_download_error">下载出错，请检查网络连接</string>
+    <string name="layout_version_no_new">未检测到新版本</string>
+    <string name="layout_miner_tip">矿工交易费</string>
+
+    <string name="note_not_valid_wallet">非法的钱包地址</string>
+    <string name="note_no_valid_wallet">没有可用的钱包</string>
+    <string name="note_balance_not_enough">钱包余额不足</string>
+    <string name="note_no_receiver">请输入收币地址</string>
+    <string name="note_receiver_illegal">收币地址格式错误</string>
+    <string name="note_no_password">请输入钱包密码</string>
+    <string name="note_error_password">钱包密码错误</string>
+    <string name="note_no_amount">请输入转账数量</string>
+    <string name="note_error_amount">请输入合法的转账数量</string>
+    <string name="note_transfer_success">转账成功</string>
+    <string name="note_transfer_failed_param">转账失败，请检查输入的项目</string>
+    <string name="note_transfer_failed_balance">转账失败，钱包余额不足</string>
+    <string name="note_transfer_failed_exception">转账失败，请稍后重试</string>
+    <string name="note_permittion_read">数据读取失败，请打开本应用读写数据权限</string>
+    <string name="note_read_failed">数据读写错误</string>
+    <string name="note_create_wallet_failed">创建钱包失败，请稍后重试</string>
+    <string name="note_no_wallet_name">请输入钱包名称</string>
+    <string name="note_no_pv_mnemonic">请输入私钥或助记词</string>
+    <string name="note_error_pv_mnemonic">请输入正确的私钥或助记词</string>
+    <string name="note_error_import_wallet">导入钱包失败，请检查私钥或助记词是否正确</string>
+    <string name="note_wallet_exists">钱包地址已经存在</string>
+    <string name="note_wallet_copied">钱包地址已拷贝</string>
+    <string name="note_wallet_private_key_copied">钱包私钥已拷贝</string>
+    <string name="note_node_error">节点通信异常，请稍后重试</string>
+    <string name="note_permittion_camera">打开相机失败，请打开本应用相机使用权限</string>
+    <string name="note_press_again">再按一次退出</string>
+    <string name="note_no_step">没有可兑换的步数</string>
+    <string name="note_select_address">请选择一个有足够余额的钱包地址</string>
+    <string name="note_convert_success">本次成功兑换%d步</string>
+    <string name="note_convert_failed">兑换失败，请稍后重试</string>
+    <string name="note_old_password">请输入旧密码</string>
+    <string name="note_new_password">请输入新密码</string>
+    <string name="note_confirm_password">请输入确认密码</string>
+    <string name="note_modify_password_diff">两次输入的新密码不一致</string>
+    <string name="note_old_password_error">旧密码输入错误</string>
+    <string name="note_modify_password_success">修改钱包密码成功</string>
+    <string name="note_modify_password_failed">修改钱包密码失败</string>
+    <string name="note_remote_contract_empty">远程合约地址为空</string>
+    <string name="note_remote_contract_invalid">远程合约地址无效</string>
+    <string name="note_confirm_title">提示</string>
+    <string name="note_confirm_delete_wallet">确认删除当前钱包?</string>
+    <string name="note_warning_title">提醒</string>
+    <string name="note_warning_mnemonic">请手动抄写本页面的助记词或私钥，在钱包丢失或更换设备时，助记词或私钥将是恢复钱包数据的唯一途径！</string>
+    <string name="note_google_fit_failed">Google Fit 授权失败</string>
+    <string name="note_google_fit_unavaiable">Google Fit 不可用</string>
+    <string name="note_receive_coin_failed">领取奖励失败</string>
+    <string name="note_receive_coin_success">领取奖励成功</string>
+    <string name="note_receive_coin_content">当前新创建的钱包可以领取一次代币奖励，是否领取？</string>
+
+    <string name="net_not_connected">发送请求失败，请检查网络连接</string>
+    <string name="net_server_connected_error">连接服务器失败，请稍后重试</string>
+    <string name="net_server_error">服务器处理请求失败，请稍后重试</string>
+    <string name="net_unknown_error">未知错误，请稍后重试</string>
+
+    <string name="error_app">未知异常，程序即将退出</string>
+
+    <string name="bt_wallet">蓝牙钱包</string>
+    <string name="bt_connect">Connect</string>
+    <string name="bt_import">导入蓝牙钱包</string>
+    <string name="bt_publickey">公钥</string>
+    <string name="bt_address">蓝牙地址</string>
+    <string name="bt_failed">蓝牙钱包连接失败</string>
+
+    <string name="mobile_huawei">华为</string>
+    <string name="mobile_xiaomi">小米</string>
+    <string name="mobile_samsung">三星</string>
+    <string name="mobile_lenovo">联想</string>
+    <string name="mobile_zte">中兴</string>
+    <string name="mobile_oppo">OPPO</string>
+    <string name="mobile_vivo">VIVO</string>
+    <string name="mobile_meizu">魅族</string>
+    <string name="mobile_leshi">乐视</string>
+    <string name="mobile_jinli">金立</string>
+
+    <string name="mobile_note_huawei">1、设置->高级设置->电池->省电模式->采用性能模式；\n2、设置->高级设置->电池->锁屏清理应用->不允许%s（没有该选项请忽略）；
+        \n3、设置->高级设置->电池->后台高耗电应用->耗电详情->唤醒系统、自启动、后台运行开关都打开；\n4、设置->高级设置->电池->受保护应用->保护%s。</string>
+    <string name="mobile_note_xiaomi">1、安全中心->授权管理->自启动管理->%s(开)->允许系统唤醒(开)；\n2、安全中心->授权管理->应用权限管理->%s->权限全开；
+        \n3、设置->电量与性能->神隐模式->关闭；\n4、设置->电量与性能->省电优化->应用智能省电->%s(无限制)</string>
+    <string name="mobile_note_samsung">1、设置->电池->未监视的应用程序->添加%s；\n2、设置->应用程序管理->管理自动运行->%s(开)；
+        \n3、设置->内存->把%s加入必备应用程序，按下手机菜单键，下拉%s锁定。</string>
+    <string name="mobile_note_lenovo">1、乐安全->手机加速->右上角菜单->保护名单，将%s添加至名单中；\n2、乐安全->手机加速->自启管理->添加%s。</string>
+    <string name="mobile_note_zte">1、掌心管家->手机加速->设置->受保护应用->添加%s；\n2、掌心管家->自启动管理->添加需要后台运行的软件->%s；
+        \n3、按下手机菜单键，下拉锁定%s。</string>
+    <string name="mobile_note_oppo">1、手机管家->权限隐私->自启动管理%s(开)；\n2、手机管家->权限隐私->%s->我信任该应用；\n3、设置->电池->关闭低电量模式；
+        \n4、设置->电池->其他->%s->关闭后台冻结、自动优化等；\n5、按下手机菜单键，下拉锁定%s。</string>
+    <string name="mobile_note_vivo">1、i管家->应用管理->权限管理->自启动->%s(开)；\n2、i管家->应用管理->权限管理->后台弹出界面->%s(开)；
+        \n3、i管家->电池管理->后台高耗电->%s(开)；\n4、i管家->电池管理->勾选正常模式。</string>
+    <string name="mobile_note_meizu">1、手机管家->省电模式(开)，待机耗电管理->%s(开)。</string>
+    <string name="mobile_note_leshi">1、手机管家->省电管理->高级省电->应用保护->%s自动清理(关)；\n2、手机管家->自启动管理->%s自动启动(开)；
+        \n3、按下手机菜单键，下拉锁定%s。</string>
+    <string name="mobile_note_jinli">1、系统管家->应用管家->应用自启->%s自启(开)；\n2、系统管家->绿色后台->进程白名单->添加应用到白名单，勾选%s；
+        \n3、设置->应用->配置应用->应用权限->%s->全部允许；\n4、按下手机菜单键，下拉锁定%s。</string>
+</resources>
